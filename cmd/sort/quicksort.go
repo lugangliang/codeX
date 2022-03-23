@@ -1,6 +1,7 @@
 package main
 
 import (
+	"codeX/util"
 	"fmt"
 	"math/rand"
 	"time"
@@ -63,23 +64,8 @@ func QuickSort(slice []int, start, end int) {
 	QuickSort(slice, pivot+1, end)
 }
 
-func checkResult(array []int) {
-
-	i, j := 0, 0
-	sliceLen := len(array)
-	for ; i < sliceLen; i++ {
-		for j = i + 1; j < sliceLen; j++ {
-			if array[i] > array[j] {
-				fmt.Println("Sort Error...............", array)
-			}
-		}
-	}
-
-	return
-}
-
 func main() {
-	for i := 6; i < 40; i++ {
+	for i := 6; i < 7; i++ {
 		array := make([]int, i)
 		time.Sleep(1*time.Second)
 		rand.Seed(time.Now().UnixNano())
@@ -91,7 +77,7 @@ func main() {
 		//array = []int{11, 4, 80, 73}
 		fmt.Println("before sort", array)
 		QuickSort(array, 0, len(array)-1)
-		checkResult(array)
+		util.CheckResult(array)
 		fmt.Println("after sort", array)
 	}
 	fmt.Println("Hello world.")
